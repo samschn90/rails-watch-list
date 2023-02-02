@@ -1,0 +1,16 @@
+<h1><%= @list.name %></h1>
+<br>
+<h2>My bookmarks</h2>
+<% @list.bookmarks.each do |bookmark| %>
+  <h3><%= bookmark.movie.title %></h3>
+  <p><%= bookmark.movie.overview %></p>
+  <br>
+  <p>Comment:</p>
+  <p><%= bookmark.comment %></p>
+<% end %>
+<br>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
+  <%= f.association :movie, prompt: "Select a movie" %>
+  <%= f.submit class: "btn btn-flat" %>
+<% end %>

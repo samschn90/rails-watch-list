@@ -1,0 +1,5 @@
+<h2>Create a new list</h2>
+<%= simple_form_for @list do |f| %>
+  <%= f.input :name, placeholder: 'name of your list' %>
+  <%= f.submit class: 'btn btn-flat' %>
+<% end %>
